@@ -1,4 +1,4 @@
-package com.proud.egov.service;
+package com.proud.egov.consent.service;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;

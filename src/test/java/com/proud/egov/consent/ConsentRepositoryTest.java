@@ -1,4 +1,4 @@
-package com.proud.egov;
+package com.proud.egov.consent;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

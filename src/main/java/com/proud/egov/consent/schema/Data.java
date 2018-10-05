@@ -1,4 +1,4 @@
-package com.proud.egov.schema;
+package com.proud.egov.consent.schema;
 
 import javax.xml.bind.annotation.*;
 

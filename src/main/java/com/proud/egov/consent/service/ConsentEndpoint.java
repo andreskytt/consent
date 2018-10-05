@@ -1,10 +1,10 @@
-package com.proud.egov.service;
+package com.proud.egov.consent.service;
 
-import com.proud.egov.ConsentRepository;
-import com.proud.egov.schema.Consent;
-import com.proud.egov.schema.FindConsentRequest;
-import com.proud.egov.schema.FindConsentResponse;
-import com.proud.egov.schema.ServiceFault;
+import com.proud.egov.consent.ConsentRepository;
+import com.proud.egov.consent.schema.Consent;
+import com.proud.egov.consent.schema.FindConsentRequest;
+import com.proud.egov.consent.schema.FindConsentResponse;
+import com.proud.egov.consent.schema.ServiceFault;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;

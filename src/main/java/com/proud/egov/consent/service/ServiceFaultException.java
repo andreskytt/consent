@@ -1,6 +1,6 @@
-package com.proud.egov.service;
+package com.proud.egov.consent.service;
 
-import com.proud.egov.schema.ServiceFault;
+import com.proud.egov.consent.schema.ServiceFault;
 
 public class ServiceFaultException extends RuntimeException {
 
