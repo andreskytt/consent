@@ -1,4 +1,4 @@
-# Consent
+# Consent [![Build Status](https://travis-ci.org/andreskytt/consent.svg?branch=master)](https://travis-ci.org/andreskytt/consent)
 A first draft of a consent provider implementation to demonstrate the WSDL and move from architecture to design. See [this document](consent_architecture.pdf)
 
 ## Running
