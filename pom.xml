@@ -4,7 +4,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.jio.egov</groupId>
+  <groupId>com.proudengineers.egov</groupId>
   <artifactId>ConsentProvider</artifactId>
   <version>1.0-SNAPSHOT</version>
 
@@ -43,6 +43,11 @@
           <groupId>org.springframework.boot</groupId>
           <artifactId>spring-boot-starter-test</artifactId>
           <scope>test</scope>
+          <version>2.0.5.RELEASE</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-starter-data-jpa</artifactId>
           <version>2.0.5.RELEASE</version>
       </dependency>
       <dependency>
@@ -110,11 +115,11 @@
               -->
               <configuration>
                   <sources>
-                      <source>src/main/java/com/jio/egov/schema</source>
+                      <source>src/main/java/com/proud/egov/consent/API/schema</source>
                   </sources>
                   <transformSchemas>
                       <transformSchema>
-                          <uri>http://jio.com/egov/consent</uri>
+                          <uri>http://proud.com/egov/consent</uri>
                           <toFile>consent.xsd</toFile>
                       </transformSchema>
                   </transformSchemas>

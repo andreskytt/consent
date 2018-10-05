@@ -1,8 +1,8 @@
-package com.proud.egov.consent.schema;
+package com.proud.egov.consent.API.schema;
 
 import javax.xml.bind.annotation.*;
 
-@XmlType(namespace = "http://jio.com/egov/consent")
+@XmlType(namespace = "http://proud.com/egov/consent")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Data {
     @XmlElement(required = true)

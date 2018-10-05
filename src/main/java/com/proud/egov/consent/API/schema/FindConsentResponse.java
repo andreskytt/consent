@@ -1,9 +1,9 @@
-package com.proud.egov.consent.schema;
+package com.proud.egov.consent.API.schema;
 
 import javax.xml.bind.annotation.*;
 
-@XmlRootElement(namespace = "http://jio.com/egov/consent")
-@XmlType(namespace = "http://jio.com/egov/consent")
+@XmlRootElement(namespace = "http://proud.com/egov/consent")
+@XmlType(namespace = "http://proud.com/egov/consent")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class FindConsentResponse {
     @XmlElement(required = true)

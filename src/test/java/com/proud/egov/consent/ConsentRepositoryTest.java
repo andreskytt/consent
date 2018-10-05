@@ -1,5 +1,6 @@
 package com.proud.egov.consent;
 
+import com.proud.egov.consent.API.ConsentRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class ConsentRepositoryTest {
     public void testFind(){
         assertNotNull(consentRepository.findConsent("user", "DCID", "SVCID"));
 /*
-        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://jio.com/egov/consent">
+        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://proud.com/egov/consent">
    <soapenv:Header/>
    <soapenv:Body>
       <con:findConsentRequest>
@@ -41,7 +42,7 @@ public class ConsentRepositoryTest {
 */
         assertNull(consentRepository.findConsent("user", "DCID", "NoSuchService"));
 /*
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://jio.com/egov/consent">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://proud.com/egov/consent">
    <soapenv:Header/>
    <soapenv:Body>
       <con:findConsentRequest>
@@ -54,7 +55,7 @@ public class ConsentRepositoryTest {
  */
         assertNull(consentRepository.findConsent("NoSuchUser", "NoSuchDataConsumer", "NoSuchService"));
         /*
-<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://jio.com/egov/consent">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://proud.com/egov/consent">
    <soapenv:Header/>
    <soapenv:Body>
       <con:findConsentRequest>

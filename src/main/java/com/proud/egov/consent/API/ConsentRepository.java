@@ -1,12 +1,12 @@
-package com.proud.egov.consent;
+package com.proud.egov.consent.API;
 
 import javax.annotation.PostConstruct;
 import java.util.*;
 
-import com.proud.egov.consent.schema.Consent;
-import com.proud.egov.consent.schema.Data;
-import com.proud.egov.consent.schema.Identifiers;
-import com.proud.egov.consent.schema.Service;
+import com.proud.egov.consent.API.schema.Consent;
+import com.proud.egov.consent.API.schema.Data;
+import com.proud.egov.consent.API.schema.Identifiers;
+import com.proud.egov.consent.API.schema.Service;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.stereotype.Component;

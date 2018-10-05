@@ -1,4 +1,4 @@
-package com.proud.egov.consent;
+package com.proud.egov.consent.API;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

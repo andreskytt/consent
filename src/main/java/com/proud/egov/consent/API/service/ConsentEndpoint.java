@@ -1,10 +1,10 @@
-package com.proud.egov.consent.service;
+package com.proud.egov.consent.API.service;
 
-import com.proud.egov.consent.ConsentRepository;
-import com.proud.egov.consent.schema.Consent;
-import com.proud.egov.consent.schema.FindConsentRequest;
-import com.proud.egov.consent.schema.FindConsentResponse;
-import com.proud.egov.consent.schema.ServiceFault;
+import com.proud.egov.consent.API.ConsentRepository;
+import com.proud.egov.consent.API.schema.Consent;
+import com.proud.egov.consent.API.schema.FindConsentRequest;
+import com.proud.egov.consent.API.schema.FindConsentResponse;
+import com.proud.egov.consent.API.schema.ServiceFault;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -13,7 +13,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 @Endpoint
 public class ConsentEndpoint {
-    private static final String NAMESPACE_URI = "http://jio.com/egov/consent";
+    private static final String NAMESPACE_URI = "http://proud.com/egov/consent";
 
     private ConsentRepository consentRepository;
 
