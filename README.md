@@ -1,5 +1,5 @@
 # Consent [![Build Status](https://travis-ci.org/andreskytt/consent.svg?branch=master)](https://travis-ci.org/andreskytt/consent)
-A first draft of a consent provider implementation to demonstrate the WSDL and move from architecture to design. See [this document](consent_architecture.pdf)
+A first draft of a consent provider implementation to demonstrate the WSDL and move from architecture to design. See [this document](consent_architecture.pdf) for architecture discussion and [the API docs](API.md) for API specification.
 
 ## Running
 `mvn spring-boot:run "-Dlogging.level.root=DEBUG"`
