@@ -13,9 +13,6 @@ public class FindConsentResponse {
     @XmlElement
     private String signedConsent;
 
-    // A string identifying the serialisation method used in creation of the signedConsent container
-    @XmlElement
-    private String serialisationVersion;
     public void setConsent(Consent consent) {
         this.consent = consent;
     }
