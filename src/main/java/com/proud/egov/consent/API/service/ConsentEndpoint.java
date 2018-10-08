@@ -34,23 +34,22 @@ public class ConsentEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "findConsentRequest")
     @ResponsePayload
     public FindConsentResponse findConsent(@RequestPayload FindConsentRequest request){
+        ;
         FindConsentResponse response = new FindConsentResponse();
 
-        com.proud.egov.consent.model.Consent consent1 = consentService.getConsent(request.getUserID(), request.getDCID(), request.getServiceID());
+        com.proud.egov.consent.model.Consent modelConsent = consentService.getConsent(request.getUserID(), request.getDCID(), request.getServiceID());
 
-        Consent consent = new Consent(consent1);
-        consent.getIdentifiers().setCCID(consentProviderName);
-
-        if(consent != null) {
-            response.setConsent(consent);
-        }
-        else{
+        if(modelConsent == null){
             throw new ServiceFaultException("ERROR", new ServiceFault(
                     "NOT_FOUND", "No consent found for user \"" + request.getUserID() + "\"" +
                     " model consumer \"" + request.getDCID() + "\"" +
                     " service \"" + request.getServiceID() + "\""));
         }
 
+        Consent consent = new Consent(modelConsent);
+        consent.getIdentifiers().setCCID(consentProviderName);
+
+        response.setConsent(consent);
         return response;
     }
 }

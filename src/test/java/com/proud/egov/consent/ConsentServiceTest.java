@@ -4,30 +4,32 @@ import com.proud.egov.consent.service.ConsentServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static junit.framework.Assert.assertNotNull;
-import static junit.framework.Assert.assertNull;
+import static junit.framework.TestCase.assertNull;
 
 
 @RunWith(SpringRunner.class)
+@SpringBootTest
 public class ConsentServiceTest {
     @TestConfiguration
     static class ConsentRepositoryTestConfiguration{
         @Bean
-        public ConsentServiceImpl consentRepository(){
+        public ConsentServiceImpl consentService(){
             return new ConsentServiceImpl();
         }
     }
 
     @Autowired
-    ConsentServiceImpl consentRepository;
+    private ConsentServiceImpl consentService;
 
     @Test
     public void testFind(){
-//        assertNotNull(consentRepository.getConsent("user", "DCID", "SVCID"));
+        assertNotNull(consentService.getConsent("user", "DCID", "SVCID"));
 /*
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://proud.com/egov/consent">
    <soapenv:Header/>
@@ -40,7 +42,7 @@ public class ConsentServiceTest {
    </soapenv:Body>
 </soapenv:Envelope>
 */
-//        assertNull(consentRepository.getConsent("user", "DCID", "NoSuchService"));
+        assertNull(consentService.getConsent("user", "DCID", "NoSuchService"));
 /*
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://proud.com/egov/consent">
    <soapenv:Header/>
@@ -53,7 +55,7 @@ public class ConsentServiceTest {
    </soapenv:Body>
 </soapenv:Envelope>
  */
-//        assertNull(consentRepository.getConsent("NoSuchUser", "NoSuchDataConsumer", "NoSuchService"));
+        assertNull(consentService.getConsent("NoSuchUser", "NoSuchDataConsumer", "NoSuchService"));
         /*
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://proud.com/egov/consent">
    <soapenv:Header/>
