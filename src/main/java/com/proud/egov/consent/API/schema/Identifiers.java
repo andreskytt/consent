@@ -53,5 +53,15 @@ public class Identifiers {
     public void setCCID(String CCID) {
         this.CCID = CCID;
     }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Identifiers{");
+        sb.append("DCID='").append(DCID).append('\'');
+        sb.append(", userID='").append(userID).append('\'');
+        sb.append(", CCID='").append(CCID).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }
 

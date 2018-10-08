@@ -1,6 +1,7 @@
 package com.proud.egov.consent.API.schema;
 
 import javax.xml.bind.annotation.*;
+import java.util.Arrays;
 
 @XmlType(namespace = "http://proud.com/egov/consent")
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -37,5 +38,14 @@ public class Data {
 
     public void setHumanReadableConsent(String humanReadableConsent) {
         this.humanReadableConsent = humanReadableConsent;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("Data{");
+        sb.append("services=").append(services == null ? "null" : Arrays.asList(services).toString());
+        sb.append(", humanReadableConsent='").append(humanReadableConsent).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

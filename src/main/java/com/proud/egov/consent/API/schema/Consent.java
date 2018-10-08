@@ -80,8 +80,8 @@ public class Consent {
         final StringBuffer sb = new StringBuffer("Consent{");
         sb.append("expiry=").append(expiry);
         sb.append(", ID='").append(ID).append('\'');
-        sb.append(", identifiers=").append(identifiers);
-        sb.append(", model=").append(data);
+        sb.append(", identifiers=").append(identifiers.toString());
+        sb.append(", model=").append(data.toString());
         sb.append('}');
         return sb.toString();
     }

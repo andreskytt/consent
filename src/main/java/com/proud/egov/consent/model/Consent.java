@@ -1,10 +1,8 @@
 package com.proud.egov.consent.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -19,7 +17,8 @@ public class Consent {
     private String userID;
 
     //Data
-    private Service[] services;
+    @OneToMany(targetEntity = Service.class)
+    private List<Service> services;
     private String humanReadableConsent;
 
     public UUID getId() {
@@ -50,11 +49,11 @@ public class Consent {
         this.userID = userID;
     }
 
-    public Service[] getServices() {
+    public List<Service> getServices() {
         return services;
     }
 
-    public void setServices(Service[] services) {
+    public void setServices(List<Service> services) {
         this.services = services;
     }
 

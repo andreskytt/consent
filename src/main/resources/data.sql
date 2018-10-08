@@ -1,4 +1,6 @@
-/*
-insert into service
-values('GET_DATA', 'DPID')
-values('GET_MORE_DATA', 'DPID')*/
+INSERT INTO CONSENT VALUES('6e560f9e32334bf0ab50161ba2cc1e7c', 'DCID', PARSEDATETIME('01.01.2019', 'DD.MM.YYYY', 'en', 'GMT'),'Human readable consent', 'user')
+INSERT INTO CONSENT VALUES('6d560f9e32334bf0ab50161ba2cc1e7c', 'DCID', PARSEDATETIME('01.05.2018', 'DD.MM.YYYY', 'en', 'GMT'),'Human readable consent', 'user')
+
+INSERT INTO SERVICE VALUES('SVCID', 'DPID')
+
+INSERT INTO CONSENT_SERVICES VALUES('6e560f9e32334bf0ab50161ba2cc1e7c', 'SVCID')
