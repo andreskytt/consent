@@ -1,6 +1,7 @@
 package com.proud.egov.consent.API.schema;
 
 import javax.xml.bind.annotation.*;
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -28,6 +29,18 @@ public class Consent {
         this.ID = ID;
         this.identifiers = identifiers;
         this.data = data;
+    }
+
+    public Consent(com.proud.egov.consent.model.Consent dao){
+        this.expiry = dao.getExpiry();
+        this.ID = dao.getId().toString();
+        this.identifiers = new Identifiers(dao.getDataConsumerID(), dao.getUserID(), "");
+
+        ArrayList<Service> services = new ArrayList<>();
+        for(com.proud.egov.consent.model.Service service: dao.getServices()){
+            services.add(new Service(service.getDataProviderID(), service.getID()));
+        }
+        this.data = new Data((Service[]) services.toArray(), dao.getHumanReadableConsent());
     }
 
     public Date getExpiry() {
@@ -68,7 +81,7 @@ public class Consent {
         sb.append("expiry=").append(expiry);
         sb.append(", ID='").append(ID).append('\'');
         sb.append(", identifiers=").append(identifiers);
-        sb.append(", data=").append(data);
+        sb.append(", model=").append(data);
         sb.append('}');
         return sb.toString();
     }

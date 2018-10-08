@@ -1,9 +1,11 @@
-package com.proud.egov.consent.API;
+package com.proud.egov.consent;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
+@EntityScan(basePackages = "com.proud.egov")
 public class App
 {
     public static void main( String[] args )

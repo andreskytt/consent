@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.*;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Identifiers {
 
-    // An identifier of the data consumer (service provider) the consent is given out to
+    // An identifier of the model consumer (service provider) the consent is given out to
     @XmlElement(required = true)
     private String DCID;
 
@@ -28,6 +28,7 @@ public class Identifiers {
 
     public Identifiers() {
     }
+
 
     public String getDCID() {
         return DCID;
