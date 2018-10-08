@@ -70,4 +70,7 @@ public class Consent {
         this.dataConsumerID = dataConsumerID;
         this.userID = userID;
     }
+
+    public Consent() {
+    }
 }

@@ -29,7 +29,7 @@ public class ConsentServiceTest {
     public void testFind(){
 //        assertNotNull(consentRepository.getConsent("user", "DCID", "SVCID"));
 /*
-        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://proud.com/egov/consent">
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:con="http://proud.com/egov/consent">
    <soapenv:Header/>
    <soapenv:Body>
       <con:findConsentRequest>

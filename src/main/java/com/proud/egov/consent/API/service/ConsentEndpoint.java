@@ -35,7 +35,10 @@ public class ConsentEndpoint {
     @ResponsePayload
     public FindConsentResponse findConsent(@RequestPayload FindConsentRequest request){
         FindConsentResponse response = new FindConsentResponse();
-        Consent consent = new Consent(consentService.getConsent(request.getUserID(), request.getDCID(), request.getServiceID()));
+
+        com.proud.egov.consent.model.Consent consent1 = consentService.getConsent(request.getUserID(), request.getDCID(), request.getServiceID());
+
+        Consent consent = new Consent(consent1);
         consent.getIdentifiers().setCCID(consentProviderName);
 
         if(consent != null) {

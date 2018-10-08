@@ -41,8 +41,10 @@ public class ConsentServiceImpl implements ConsentService{
         Assert.notNull(dataConsumerID, "The Data Consumer ID must not be null");
         Assert.notNull(serviceID, "The service ID must not be null");
 
+        logger.debug("Entering getConsent, going to execute a query");
         Example<Consent> consentExample = Example.of(new Consent(dataConsumerID, userID));
         List<Consent> consents = consentRepository.findAll(consentExample);
+        logger.debug("Query done, found " + consents.size() + " records");
 
         for(Consent c : consents){
             for(Service s : c.getServices()){

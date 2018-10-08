@@ -1,5 +1,8 @@
 package com.proud.egov.consent.API.schema;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,6 +11,9 @@ import java.util.Date;
 @XmlType(namespace = "http://proud.com/egov/consent")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Consent {
+    @XmlTransient
+    protected final Log logger = LogFactory.getLog(this.getClass());
+
     @XmlAttribute(required = true)
     private Date expiry;
 
@@ -40,7 +46,9 @@ public class Consent {
         for(com.proud.egov.consent.model.Service service: dao.getServices()){
             services.add(new Service(service.getDataProviderID(), service.getID()));
         }
-        this.data = new Data((Service[]) services.toArray(), dao.getHumanReadableConsent());
+        logger.debug("Converting services");
+        this.data = new Data(services.toArray(new Service[0]), dao.getHumanReadableConsent());
+        logger.debug("Consent creation done");
     }
 
     public Date getExpiry() {
