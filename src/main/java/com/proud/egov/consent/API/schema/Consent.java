@@ -5,6 +5,7 @@ import org.apache.commons.logging.LogFactory;
 
 import javax.xml.bind.annotation.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 
@@ -92,5 +93,115 @@ public class Consent {
         sb.append(", model=").append(data.toString());
         sb.append('}');
         return sb.toString();
+    }
+
+    @XmlType(namespace = "http://proud.com/egov/consent")
+    @XmlAccessorType(XmlAccessType.FIELD)
+    public static class Data {
+        @XmlElement(required = true)
+        private Service[] services;
+
+        /*
+        The detailed explanation of the service the user has read and accepted.
+        Can be either plain text or a BASE64-encoded PDF document
+        */
+        @XmlElement(required = true)
+        private String humanReadableConsent;
+
+        public Data() {
+        }
+
+        public Data(Service[] services, String humanReadableConsent) {
+            this.services = services;
+            this.humanReadableConsent = humanReadableConsent;
+        }
+
+        public Service[] getServices() {
+            return services;
+        }
+
+        public void setServices(Service[] services) {
+            this.services = services;
+        }
+
+        public String getHumanReadableConsent() {
+            return humanReadableConsent;
+        }
+
+        public void setHumanReadableConsent(String humanReadableConsent) {
+            this.humanReadableConsent = humanReadableConsent;
+        }
+
+        @Override
+        public String toString() {
+            final StringBuffer sb = new StringBuffer("Data{");
+            sb.append("services=").append(services == null ? "null" : Arrays.asList(services).toString());
+            sb.append(", humanReadableConsent='").append(humanReadableConsent).append('\'');
+            sb.append('}');
+            return sb.toString();
+        }
+    }
+
+    @XmlType(namespace = "http://proud.com/egov/consent")
+    @XmlAccessorType(XmlAccessType.FIELD)
+    public static class Identifiers {
+
+        // An identifier of the model consumer (service provider) the consent is given out to
+        @XmlElement(required = true)
+        private String DCID;
+
+        // An identifier of the user giving the consent. It must match the identifier
+        // in the signature of the signed consent container
+        @XmlElement(required = true)
+        private String userID;
+
+        // An identifier of the consent collector. It must match the identifier supplied
+        // in the non-repudiation mechanism of the communications channel
+        @XmlElement(required = true)
+        private String CCID;
+
+        public Identifiers(String DCID, String userID, String CCID) {
+            this.DCID = DCID;
+            this.userID = userID;
+            this.CCID = CCID;
+        }
+
+        public Identifiers() {
+        }
+
+
+        public String getDCID() {
+            return DCID;
+        }
+
+        public void setDCID(String DCID) {
+            this.DCID = DCID;
+        }
+
+        public String getUserID() {
+            return userID;
+        }
+
+        public void setUserID(String userID) {
+            this.userID = userID;
+        }
+
+        public String getCCID() {
+            return CCID;
+        }
+
+        public void setCCID(String CCID) {
+            this.CCID = CCID;
+        }
+
+        @Override
+        public String toString() {
+            final StringBuffer sb = new StringBuffer("Identifiers{");
+            sb.append("DCID='").append(DCID).append('\'');
+            sb.append(", userID='").append(userID).append('\'');
+            sb.append(", CCID='").append(CCID).append('\'');
+            sb.append('}');
+            return sb.toString();
+        }
     }
 }
