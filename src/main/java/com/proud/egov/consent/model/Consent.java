@@ -17,7 +17,7 @@ public class Consent {
     private String userID;
 
     //Data
-    @OneToMany(targetEntity = Service.class)
+    @ManyToMany(targetEntity = Service.class)
     private List<Service> services;
     private String humanReadableConsent;
 
