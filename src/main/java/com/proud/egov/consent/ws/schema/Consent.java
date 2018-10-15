@@ -45,11 +45,9 @@ public class Consent {
 
         ArrayList<Service> services = new ArrayList<>();
         for(com.proud.egov.consent.model.Service service: dao.getServices()){
-            services.add(new Service(service.getDataProviderID(), service.getID()));
+            services.add(new Service(service.getID(), service.getDataProviderID(), service.getName()));
         }
-        logger.debug("Converting services");
         this.data = new Data(services.toArray(new Service[0]), dao.getHumanReadableConsent());
-        logger.debug("Consent creation done");
     }
 
     public Date getExpiry() {

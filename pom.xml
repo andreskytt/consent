@@ -131,7 +131,7 @@
                 -->
                 <configuration>
                     <sources>
-                        <source>src/main/java/com/proud/egov/consent/API/schema</source>
+                        <source>src/main/java/com/proud/egov/consent/ws/schema</source>
                     </sources>
                     <transformSchemas>
                         <transformSchema>

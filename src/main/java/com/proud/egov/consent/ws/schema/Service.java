@@ -12,13 +12,16 @@ public class Service {
     @XmlElement(required = true)
     private String dataProviderID;
 
+    @XmlElement(required = true)
+    private String name;
 
     public Service() {
     }
 
-    public Service(String dataProviderID, String ID) {
-        this.dataProviderID = dataProviderID;
+    public Service(String ID, String dataProviderID, String name) {
         this.ID = ID;
+        this.dataProviderID = dataProviderID;
+        this.name = name;
     }
 
     public String getDataProviderID() {
@@ -37,11 +40,20 @@ public class Service {
         this.ID = ID;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Service{");
         sb.append("ID='").append(ID).append('\'');
         sb.append(", dataProviderID='").append(dataProviderID).append('\'');
+        sb.append(", name='").append(name).append('\'');
         sb.append('}');
         return sb.toString();
     }
