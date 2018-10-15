@@ -1,6 +1,6 @@
-package com.proud.egov.consent.API.service;
+package com.proud.egov.consent.ws.service;
 
-import com.proud.egov.consent.API.schema.ServiceFault;
+import com.proud.egov.consent.ws.schema.ServiceFault;
 import org.springframework.ws.soap.SoapFault;
 import org.springframework.ws.soap.SoapFaultDetail;
 import org.springframework.ws.soap.server.endpoint.SoapFaultMappingExceptionResolver;

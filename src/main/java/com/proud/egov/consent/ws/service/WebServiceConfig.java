@@ -1,4 +1,4 @@
-package com.proud.egov.consent.API.service;
+package com.proud.egov.consent.ws.service;
 
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
@@ -24,14 +24,14 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(applicationContext);
         servlet.setTransformWsdlLocations(true);
-        return new ServletRegistrationBean(servlet, "/ws/*");
+        return new ServletRegistrationBean(servlet, "/api/ws/*");
     }
 
     @Bean(name = "consent")
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema consentSchema) {
         DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
         wsdl11Definition.setPortTypeName("ConsentPort");
-        wsdl11Definition.setLocationUri("/ws");
+        wsdl11Definition.setLocationUri("/api/ws");
         wsdl11Definition.setTargetNamespace("http://proud.com/egov/consent");
         wsdl11Definition.setSchema(consentSchema);
         return wsdl11Definition;

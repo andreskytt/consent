@@ -1,4 +1,4 @@
-package com.proud.egov.consent.API.schema;
+package com.proud.egov.consent.ws.schema;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

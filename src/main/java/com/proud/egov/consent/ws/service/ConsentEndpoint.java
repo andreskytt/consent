@@ -1,9 +1,9 @@
-package com.proud.egov.consent.API.service;
+package com.proud.egov.consent.ws.service;
 
-import com.proud.egov.consent.API.schema.Consent;
-import com.proud.egov.consent.API.schema.FindConsentRequest;
-import com.proud.egov.consent.API.schema.FindConsentResponse;
-import com.proud.egov.consent.API.schema.ServiceFault;
+import com.proud.egov.consent.ws.schema.Consent;
+import com.proud.egov.consent.ws.schema.FindConsentRequest;
+import com.proud.egov.consent.ws.schema.FindConsentResponse;
+import com.proud.egov.consent.ws.schema.ServiceFault;
 import com.proud.egov.consent.service.ConsentService;
 import com.proud.egov.consent.service.ConsentServiceImpl;
 import org.apache.commons.logging.Log;

@@ -1,4 +1,4 @@
-package com.proud.egov.consent.API.schema;
+package com.proud.egov.consent.ws.schema;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

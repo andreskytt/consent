@@ -1,3 +1,4 @@
 .idea
 ConsentProvider.iml
 target/
+.DS_Store
