@@ -13,7 +13,21 @@ The API assumes being accessed via a transport layer that
 
 Unless the context provides such functions, the API must not be used.
 
-## Requests
+## Utility and UI APIs
+As opposed to the requests related to [consent workflow](#consent-workflow-requests), these APIs are aimed at
+supporting the UI and providing unsecured metadata about the system itself.
+
+### /api/consents
+Returns a list of consent objects.
+
+### /api/organizations
+Returns a list of organizations known to the system. Is likely to be implemented on top of an external 
+registry in production cases, thus the need to query it via the UI rather than joining the tables
+on the database side. 
+
+`/api/organizations/{id}` returns information on a particular organization 
+
+## Consent workflow requests
 ### findConsent
 The findConsent request answers the question "Has the user given consent to a particular data consumer to access a particular 
 service?". Given an User identifier, a Data Consumer identifier and a service identifier, the function returns a consent object along 
@@ -55,7 +69,7 @@ No mechanism is provided to assure that the format of the container content matc
 
   <xs:complexType name="data">
     <xs:sequence>
-      <xs:element maxOccurs="unbounded" name="services" type="tns:service"/>
+      <xs:element name="service" type="tns:service"/>
       <xs:element name="humanReadableConsent" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>
@@ -63,6 +77,7 @@ No mechanism is provided to assure that the format of the container content matc
   <xs:complexType name="service">
     <xs:sequence>
       <xs:element name="dataProviderID" type="xs:string"/>
+      <xs:element name="name" type="xs:string"/>
     </xs:sequence>
     <xs:attribute name="id" type="xs:string" use="required"/>
   </xs:complexType>
@@ -113,7 +128,7 @@ No mechanism is provided to assure that the format of the container content matc
   </wsdl:binding>
   <wsdl:service name="ConsentPortService">
     <wsdl:port binding="tns:ConsentPortSoap11" name="ConsentPortSoap11">
-      <soap:address location="http://localhost:8080/ws"/>
+      <soap:address location="http://localhost:8080/api/ws"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

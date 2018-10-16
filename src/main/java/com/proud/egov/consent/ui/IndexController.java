@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class IndexController {
 
     @GetMapping("/ui")
-//    public String home(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
     public String homePage(Model model){
-        model.addAttribute("name", "Nipitiriamus");
         return "index";
     }
 

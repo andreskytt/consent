@@ -38,16 +38,17 @@ public class Consent {
         this.data = data;
     }
 
+    // Construct a consent based on a DAO
     public Consent(com.proud.egov.consent.model.Consent dao){
         this.expiry = dao.getExpiry();
         this.ID = dao.getId().toString();
         this.identifiers = new Identifiers(dao.getDataConsumerID(), dao.getUserID(), "");
-
-        ArrayList<Service> services = new ArrayList<>();
-        for(com.proud.egov.consent.model.Service service: dao.getServices()){
-            services.add(new Service(service.getID(), service.getDataProviderID(), service.getName()));
-        }
-        this.data = new Data(services.toArray(new Service[0]), dao.getHumanReadableConsent());
+        this.data = new Data(
+                new Service(
+                        dao.getService().getID(),
+                        dao.getService().getDataProviderID(),
+                        dao.getService().getName()),
+                dao.getHumanReadableConsent().getText());
     }
 
     public Date getExpiry() {
@@ -97,7 +98,7 @@ public class Consent {
     @XmlAccessorType(XmlAccessType.FIELD)
     public static class Data {
         @XmlElement(required = true)
-        private Service[] services;
+        private Service service;
 
         /*
         The detailed explanation of the service the user has read and accepted.
@@ -109,17 +110,17 @@ public class Consent {
         public Data() {
         }
 
-        public Data(Service[] services, String humanReadableConsent) {
-            this.services = services;
+        public Data(Service service, String humanReadableConsent) {
+            this.service = service;
             this.humanReadableConsent = humanReadableConsent;
         }
 
-        public Service[] getServices() {
-            return services;
+        public Service getService() {
+            return service;
         }
 
-        public void setServices(Service[] services) {
-            this.services = services;
+        public void setService(Service service) {
+            this.service = service;
         }
 
         public String getHumanReadableConsent() {
@@ -133,7 +134,7 @@ public class Consent {
         @Override
         public String toString() {
             final StringBuffer sb = new StringBuffer("Data{");
-            sb.append("services=").append(services == null ? "null" : Arrays.asList(services).toString());
+            sb.append("service=").append(service);
             sb.append(", humanReadableConsent='").append(humanReadableConsent).append('\'');
             sb.append('}');
             return sb.toString();

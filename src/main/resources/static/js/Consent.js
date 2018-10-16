@@ -18,20 +18,19 @@ function Consent() {
     });
   }
 
+  function getCompany(id, success){
+    $.getJSON('api/organizations/' + id, success)
+  }
+
   self._createTableRows = function (data) {
     var templateRow = $('table #row-template').html();
 
     data.forEach(function (consent) {
-      var dcid = consent.dataConsumerID;
-      console.log("DCID=" + dcid)
-      console.log(consent.services)
-      consent.services.forEach(function(service){
-          var row = $(templateRow);
-          row.find('.dpid').text(service.dataProviderID);
-          row.find('.dcid').text(this.dataConsumerID);
-          row.find('.serviceid').text(service.id);
-          $('tbody').append(row);
-      }, consent)
+      var row = $(templateRow);
+      getCompany(consent.service.dataProviderID, function (org){row.find('.dpid').text(org.fullName)})
+      getCompany(consent.dataConsumerID, function (org){row.find('.dcid').text(org.fullName)})
+      row.find('.serviceid').text(consent.service.name);
+      $('tbody').append(row);
     })
   }
 }

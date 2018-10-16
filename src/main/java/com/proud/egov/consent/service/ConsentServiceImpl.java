@@ -47,10 +47,8 @@ public class ConsentServiceImpl implements ConsentService{
         logger.debug("Query done, found " + consents.size() + " records");
 
         for(Consent c : consents){
-            for(Service s : c.getServices()){
-                if(s.getID().equals(serviceID)){
-                    return c;
-                }
+            if(c.getService().getID().equals(serviceID)){
+                return c;
             }
         }
         return null;

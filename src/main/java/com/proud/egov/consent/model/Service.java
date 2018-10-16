@@ -2,6 +2,8 @@ package com.proud.egov.consent.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Service {
@@ -9,6 +11,9 @@ public class Service {
     private String ID;
     private String dataProviderID;
     private String name;
+
+    @ManyToOne(targetEntity = HumanReadableConsent.class)
+    private HumanReadableConsent humanReadableConsent;
 
     public Service(String ID, String dataProviderID, String name) {
         this.ID = ID;

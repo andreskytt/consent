@@ -12,14 +12,19 @@ public class Consent {
     private UUID id;
     private Date expiry;
 
+    @Lob
+    private byte[] SignedContainer;
+
     //Identifiers
     private String dataConsumerID;
     private String userID;
 
     //Data
-    @ManyToMany(targetEntity = Service.class)
-    private List<Service> services;
-    private String humanReadableConsent;
+    @ManyToOne(targetEntity = Service.class)
+    private Service service;
+
+    @ManyToOne(targetEntity = HumanReadableConsent.class)
+    private HumanReadableConsent humanReadableConsent;
 
     public UUID getId() {
         return id;
@@ -49,20 +54,28 @@ public class Consent {
         this.userID = userID;
     }
 
-    public List<Service> getServices() {
-        return services;
+    public Service getService() {
+        return service;
     }
 
-    public void setServices(List<Service> services) {
-        this.services = services;
+    public void setService(Service service) {
+        this.service = service;
     }
 
-    public String getHumanReadableConsent() {
+    public HumanReadableConsent getHumanReadableConsent() {
         return humanReadableConsent;
     }
 
-    public void setHumanReadableConsent(String humanReadableConsent) {
+    public void setHumanReadableConsent(HumanReadableConsent humanReadableConsent) {
         this.humanReadableConsent = humanReadableConsent;
+    }
+
+    public byte[] getSignedContainer() {
+        return SignedContainer;
+    }
+
+    public void setSignedContainer(byte[] signedContainer) {
+        SignedContainer = signedContainer;
     }
 
     // Used in constructing examples

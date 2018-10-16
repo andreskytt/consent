@@ -16,4 +16,8 @@ public class FindConsentResponse {
     public void setConsent(Consent consent) {
         this.consent = consent;
     }
+
+    public void setSignedConsent(String signedConsent) {
+        this.signedConsent = signedConsent;
+    }
 }

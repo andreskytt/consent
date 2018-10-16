@@ -15,6 +15,9 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
+
 @Endpoint
 public class ConsentEndpoint {
     private static final String NAMESPACE_URI = "http://proud.com/egov/consent";
@@ -34,7 +37,6 @@ public class ConsentEndpoint {
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "findConsentRequest")
     @ResponsePayload
     public FindConsentResponse findConsent(@RequestPayload FindConsentRequest request){
-        ;
         FindConsentResponse response = new FindConsentResponse();
 
         com.proud.egov.consent.model.Consent modelConsent = consentService.getConsent(request.getUserID(), request.getDCID(), request.getServiceID());
@@ -49,6 +51,9 @@ public class ConsentEndpoint {
         Consent consent = new Consent(modelConsent);
         consent.getIdentifiers().setCCID(consentProviderName);
 
+        response.setSignedConsent(
+                new String(
+                        Base64.getEncoder().encode(modelConsent.getSignedContainer())));
         response.setConsent(consent);
         return response;
     }
