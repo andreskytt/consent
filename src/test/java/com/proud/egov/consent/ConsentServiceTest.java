@@ -1,6 +1,6 @@
 package com.proud.egov.consent;
 
-import com.proud.egov.consent.service.ConsentServiceImpl;
+import com.proud.egov.consent.api.dc.service.ConsentServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +9,8 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static junit.framework.Assert.assertNotNull;
-import static junit.framework.TestCase.assertNull;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 
 
 @RunWith(SpringRunner.class)
