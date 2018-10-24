@@ -1,19 +1,17 @@
-package com.proud.egov.consent.ws.schema;
+package com.proud.egov.consent.api.dc.schema;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import javax.xml.bind.annotation.*;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 
 
 @XmlType(namespace = "http://proud.com/egov/consent")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Consent {
-    @XmlTransient
-    protected final Log logger = LogFactory.getLog(this.getClass());
+//    @XmlTransient
+    protected transient final Log logger = LogFactory.getLog(this.getClass());
 
     @XmlAttribute(required = true)
     private Date expiry;

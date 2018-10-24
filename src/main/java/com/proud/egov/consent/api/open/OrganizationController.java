@@ -1,4 +1,4 @@
-package com.proud.egov.consent.ui;
+package com.proud.egov.consent.api.open;
 
 import com.proud.egov.consent.model.Organization;
 import com.proud.egov.consent.repository.OrganizationRepository;
@@ -14,10 +14,10 @@ public class OrganizationController {
     @Autowired
     private OrganizationRepository organizationRepository;
 
-    @GetMapping("api/organizations")
+    @GetMapping("api/open/organizations")
     public Iterable findAll(){return organizationRepository.findAll();}
 
-    @GetMapping("api/organizations/{id}")
+    @GetMapping("api/public/organizations/{id}")
     public Organization getOrganizationById(@PathVariable(value="id") String orgID){
         return organizationRepository.findById(orgID)
                 .orElseThrow(() -> new ResourceNotFoundException("Organization", "id", orgID));

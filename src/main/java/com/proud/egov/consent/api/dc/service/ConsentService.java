@@ -1,4 +1,4 @@
-package com.proud.egov.consent.service;
+package com.proud.egov.consent.api.dc.service;
 
 import com.proud.egov.consent.model.Consent;
 

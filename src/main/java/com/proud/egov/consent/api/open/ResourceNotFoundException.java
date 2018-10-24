@@ -1,4 +1,4 @@
-package com.proud.egov.consent.ui;
+package com.proud.egov.consent.api.open;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

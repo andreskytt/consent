@@ -1,4 +1,4 @@
-package com.proud.egov.consent.ws.schema;
+package com.proud.egov.consent.api.dc.schema;
 
 import javax.xml.bind.annotation.*;
 
@@ -35,5 +35,17 @@ public class FindConsentRequest {
 
     public String getServiceID() {
         return serviceID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public void setDCID(String DCID) {
+        this.DCID = DCID;
+    }
+
+    public void setServiceID(String serviceID) {
+        this.serviceID = serviceID;
     }
 }

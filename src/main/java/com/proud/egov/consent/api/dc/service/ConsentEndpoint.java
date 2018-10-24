@@ -1,11 +1,9 @@
-package com.proud.egov.consent.ws.service;
+package com.proud.egov.consent.api.dc.service;
 
-import com.proud.egov.consent.ws.schema.Consent;
-import com.proud.egov.consent.ws.schema.FindConsentRequest;
-import com.proud.egov.consent.ws.schema.FindConsentResponse;
-import com.proud.egov.consent.ws.schema.ServiceFault;
-import com.proud.egov.consent.service.ConsentService;
-import com.proud.egov.consent.service.ConsentServiceImpl;
+import com.proud.egov.consent.api.dc.schema.Consent;
+import com.proud.egov.consent.api.dc.schema.FindConsentRequest;
+import com.proud.egov.consent.api.dc.schema.FindConsentResponse;
+import com.proud.egov.consent.api.dc.schema.ServiceFault;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,6 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 @Endpoint

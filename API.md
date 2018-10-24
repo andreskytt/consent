@@ -13,21 +13,33 @@ The API assumes being accessed via a transport layer that
 
 Unless the context provides such functions, the API must not be used.
 
-## Utility and UI APIs
 As opposed to the requests related to [consent workflow](#consent-workflow-requests), these APIs are aimed at
 supporting the UI and providing unsecured metadata about the system itself.
 
-### /api/consents
+## API endpoints
+The API endpoint URLs are structured as follows:
+* `api/ui` supports the user interface
+* `api/open` provides open data on the system
+* `api/dc/` supports the data consumers in their request to confirm the existence of consents
+  * `ws` is the SOAP implementation
+  * `consents` is the REST one
+  
+
+### /api/ui/consents
 Returns a list of consent objects.
 
-### /api/organizations
+### /api/open/organizations
 Returns a list of organizations known to the system. Is likely to be implemented on top of an external 
 registry in production cases, thus the need to query it via the UI rather than joining the tables
 on the database side. 
 
 `/api/organizations/{id}` returns information on a particular organization 
 
-## Consent workflow requests
+### /api/dc/consents
+The mapping of [findConsent](#findconsent) to a simple REST API. It accepts the URL structure of `/api/dc/consents/{userID}/{DCID}/{svcID}`
+to implement the same functionality as its SOAP counterpart
+
+## /api/dc/ws
 ### findConsent
 The findConsent request answers the question "Has the user given consent to a particular data consumer to access a particular 
 service?". Given an User identifier, a Data Consumer identifier and a service identifier, the function returns a consent object along 

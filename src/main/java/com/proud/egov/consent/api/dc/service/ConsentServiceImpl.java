@@ -1,8 +1,7 @@
-package com.proud.egov.consent.service;
+package com.proud.egov.consent.api.dc.service;
 
 
 import com.proud.egov.consent.model.Consent;
-import com.proud.egov.consent.model.Service;
 import com.proud.egov.consent.repository.ConsentRepository;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
