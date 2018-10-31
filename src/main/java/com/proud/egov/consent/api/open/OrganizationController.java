@@ -14,7 +14,7 @@ public class OrganizationController {
     @Autowired
     private OrganizationRepository organizationRepository;
 
-    @GetMapping("api/open/organizations")
+    @GetMapping("api/public/organizations")
     public Iterable findAll(){return organizationRepository.findAll();}
 
     @GetMapping("api/public/organizations/{id}")

@@ -13,13 +13,13 @@ function Consent() {
   };
 
   function loadConsents() {
-    $.getJSON('/api/consents.json', function (data) {
+    $.getJSON('api/ui/consents.json', function (data) {
       self._createTableRows(data);
     });
   }
 
   function getCompany(id, success){
-    $.getJSON('api/organizations/' + id, success)
+    $.getJSON('api/public/organizations/' + id, success)
   }
 
   self._createTableRows = function (data) {
