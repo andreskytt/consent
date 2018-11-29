@@ -13,7 +13,7 @@ The API assumes being accessed via a transport layer that
 
 Unless the context provides such functions, the API must not be used.
 
-As opposed to the requests related to [consent workflow](#consent-workflow-requests), these APIs are aimed at
+As opposed to the requests related to [com.proud.egov.consent workflow](#com.proud.egov.consent-workflow-requests), these APIs are aimed at
 supporting the UI and providing unsecured metadata about the system itself.
 
 ## API endpoints
@@ -26,7 +26,7 @@ The API endpoint URLs are structured as follows:
   
 
 ### /api/ui/consents
-Returns a list of consent objects.
+Returns a list of com.proud.egov.consent objects.
 
 ### /api/open/organizations
 Returns a list of organizations known to the system. Is likely to be implemented on top of an external 
@@ -41,28 +41,28 @@ to implement the same functionality as its SOAP counterpart
 
 ## /api/dc/ws
 ### findConsent
-The findConsent request answers the question "Has the user given consent to a particular data consumer to access a particular 
-service?". Given an User identifier, a Data Consumer identifier and a service identifier, the function returns a consent object along 
-with a signed consent container (if a maching consent exists) or a Fault object, if it does not.
+The findConsent request answers the question "Has the user given com.proud.egov.consent to a particular data consumer to access a particular 
+service?". Given an User identifier, a Data Consumer identifier and a service identifier, the function returns a com.proud.egov.consent object along 
+with a signed com.proud.egov.consent container (if a maching com.proud.egov.consent exists) or a Fault object, if it does not.
 
-The consent object contains all the relevant information on the consent including the exact text the user accepted upon consent
-creation. In addition, a A BASE64-encoded ASiC-E container with an XML file with consent content and their XAdES signature is returned.
-This allows service providers to confirm the validity of the Consent Providers's claims and record consent information for compliance
-purposes. Also, this provides a mechanism for advancing the API without having to have users re-sign their consent documents. 
+The com.proud.egov.consent object contains all the relevant information on the com.proud.egov.consent including the exact text the user accepted upon com.proud.egov.consent
+creation. In addition, a A BASE64-encoded ASiC-E container with an XML file with com.proud.egov.consent content and their XAdES signature is returned.
+This allows service providers to confirm the validity of the Consent Providers's claims and record com.proud.egov.consent information for compliance
+purposes. Also, this provides a mechanism for advancing the API without having to have users re-sign their com.proud.egov.consent documents. 
 
 No mechanism is provided to assure that the format of the container content matches the API defined in this document.
 
 ## Detailed API specification
 ```
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://proud.com/egov/consent" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://proud.com/egov/consent" targetNamespace="http://proud.com/egov/consent">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://proud.com/egov/com.proud.egov.consent" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://proud.com/egov/com.proud.egov.consent" targetNamespace="http://proud.com/egov/com.proud.egov.consent">
   <wsdl:types>
-    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://proud.com/egov/consent" version="1.0">
+    <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://proud.com/egov/com.proud.egov.consent" version="1.0">
 
   <xs:element name="findConsentRequest" type="tns:findConsentRequest"/>
 
   <xs:element name="findConsentResponse" type="tns:findConsentResponse"/>
 
-  <xs:complexType name="consent">
+  <xs:complexType name="com.proud.egov.consent">
     <xs:sequence>
       <xs:element name="identifiers" type="tns:identifiers"/>
       <xs:element name="data" type="tns:data"/>
@@ -104,7 +104,7 @@ No mechanism is provided to assure that the format of the container content matc
 
   <xs:complexType name="findConsentResponse">
     <xs:sequence>
-      <xs:element name="consent" type="tns:consent"/>
+      <xs:element name="com.proud.egov.consent" type="tns:com.proud.egov.consent"/>
       <xs:element minOccurs="0" name="signedConsent" type="xs:string"/>
     </xs:sequence>
   </xs:complexType>

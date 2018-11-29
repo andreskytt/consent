@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>ConsentProvider</artifactId>
+        <groupId>com.proudengineers.egov</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>ConsentController</artifactId>
+    <properties>
+        <start-class>com.proud.egov.consent.App</start-class>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>1.4.197</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>2.0.5.RELEASE</version>
+        </dependency>
+    </dependencies>
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>jaxb2-maven-plugin</artifactId>
+            <version>2.4</version>
+            <executions>
+                <execution>
+                    <id>schemagen</id>
+                    <goals>
+                        <goal>schemagen</goal>
+                    </goals>
+                </execution>
+            </executions>
+
+            <!--
+                Use default configuration, implying that sources are read
+                from the directory src/main/java below the project basedir.
+
+                (i.e. getProject().getCompileSourceRoots() in Maven-speak).
+            -->
+            <configuration>
+                <sources>
+                    <source>src/main/java/com/proud/egov/consent/api/dc/schema</source>
+                </sources>
+                <transformSchemas>
+                    <transformSchema>
+                        <uri>http://proud.com/egov/consent</uri>
+                        <toFile>consent.xsd</toFile>
+                    </transformSchema>
+                </transformSchemas>
+            </configuration>
+        </plugin>
+
+    </plugins>
+</build>
+</project>

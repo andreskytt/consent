@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Test client</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/vendor/bootstrap-4.1.3.min.css">
+    <script src="/js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="/js/Consent.js"></script>
+</head>
+<body>
+<header>
+    <h1>Test consent workflow</h1>
+
+</header>
+<div th:if="${error != null}" th:text="${error}"></div>
+
+<div class="container">
+    <form role="form" action="/save" method="post">
+        <div class="row">
+            <div class="form-group">
+                <label for="dataConsumerID">Data consumer ID</label>
+                <input name="dataConsumerID" type="text" class="form-control" id="dataConsumerID" placeholder="DCID is a start">
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <label for="userID">User ID</label>
+                <input type="text" name="userID" class="form-control" id="userID" placeholder="user is a start">
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <label for="serviceIDs">Service IDs</label>
+                <input type="text" name="serviceIDs" class="form-control" id="serviceIDs" placeholder="SVCID,SVCID2">
+                <small id="Servicehelp" class="form-text text-muted">Service IDs, separated by commas</small>
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" class="btn btn-primary">Generate request</button>
+        </div>
+    </form>
+</div>
+
+<div th:if="${jwt != null}">
+    <div class="container" style="margin-top:5px;">
+        <form role="form" method="post" action="" th:attr="action=${@environment.getProperty('ccURL')}">
+            <div class="row">
+                <input type="hidden" name="consentRequest"  th:attr="value=${jwt}"/>
+                <button type="submit" class="btn btn-primary">Request consent</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

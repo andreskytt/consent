@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Consent Provider</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/css/vendor/bootstrap-4.1.3.min.css">
+    <script src="/js/vendor/jquery-3.3.1.min.js"></script>
+    <script src="/js/Consent.js"></script>
+</head>
+<body>
+<header>
+    <h1>Consents</h1>
+</header>
+    <div th:text="${subject}"/>
+    <div class="table-responsive">
+        <table id="consents-table" class="table table-striped table-bordered dataTable" cellspacing="0" width="100%">
+            <thead>
+            <th>Data provider</th>
+            <th>Data consumer</th>
+            <th>Service</th>
+            </thead>
+            <tbody>
+            <script id="row-template" type="text/x-custom-template">
+                <tr>
+                    <td class="dpid"></td>
+                    <td class="dcid"></td>
+                    <td class="serviceid"></td>
+                </tr>
+            </script>
+            </tbody>
+        </table>
+    </div>
+    </body>
+    <script>
+    $(function() {
+      new Consent().init();
+    })
+  </script>
+</html>
