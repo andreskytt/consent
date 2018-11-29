@@ -17,22 +17,30 @@
             <td>Subject</td>
             <td th:text="${subject}"/>
         </tr>
-        <td>
-        <td>Issuer</td>
-        <td th:text="${issuer}"/>
+        <tr>
+            <td>
+            <td>Issuer</td>
+            <td th:text="${issuer}"/>
         </tr>
-        <td>
-        <td>IssuedAt</td>
-        <td th:text="${issuedAt}"/>
+        <tr>
+            <td>
+            <td>IssuedAt</td>
+            <td th:text="${issuedAt}"/>
         </tr>
-        <td>
-        <td>ID</td>
-        <td th:text="${ID}"/>
+        <tr>
+            <td>
+            <td>ID</td>
+            <td th:text="${ID}"/>
         </tr>
-        <td>
-        <td>svcIDs</td>
-        <td th:text="${svcIDs}"/>
+        <tr>
+            <td>
+            <td>svcIDs</td>
+            <td th:text="${svcIDs}"/>
         </tr>
+        <tr>
+            <td>
+            <td>Purpose</td>
+            <td th:text="${purpose}"/>
         </tr>
     </table>
 </header>
@@ -42,6 +50,7 @@
     $(function() {
       new Consent().init();
     })
+
 
 </script>
 </html>

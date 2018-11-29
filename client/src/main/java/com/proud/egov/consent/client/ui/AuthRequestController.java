@@ -21,7 +21,11 @@ public class AuthRequestController {
     protected transient final Log logger = LogFactory.getLog(this.getClass());
 
     @PostMapping("/save")
-    String generateRequest(Model model, @RequestParam("dataConsumerID") String dataConsumerID, @RequestParam("userID") String userID, @RequestParam("serviceIDs") String serviceIDs){
+    String generateRequest(Model model,
+                           @RequestParam("dataConsumerID") String dataConsumerID,
+                           @RequestParam("userID") String userID,
+                           @RequestParam("serviceIDs") String serviceIDs,
+                           @RequestParam("purpose") String purpose){
         SecretKey key;
 
         if ((key = retrieveKey(model)) == null){
@@ -34,6 +38,7 @@ public class AuthRequestController {
                 .setIssuedAt(new Date())
                 .setId(UUID.randomUUID().toString())
                 .claim("serviceIDs", serviceIDs)
+                .claim("purpose", purpose)
                 .signWith(key)
                 .compact();
         model.addAttribute("jwt", jwt);

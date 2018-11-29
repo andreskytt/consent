@@ -47,6 +47,7 @@ public class RequestConsentController {
         model.addAttribute("issuedAt", jws.getBody().getIssuedAt());
         model.addAttribute("ID", jws.getBody().getId());
         model.addAttribute("svcIDs", jws.getBody().get("serviceIDs"));
+        model.addAttribute("purpose", jws.getBody().get("purpose"));
     }
 
     private SecretKey retrieveKey(Model model){
