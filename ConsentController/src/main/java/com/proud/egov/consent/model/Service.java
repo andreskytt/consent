@@ -47,6 +47,10 @@ public class Service {
         this.name = name;
     }
 
+    public HumanReadableConsent getHumanReadableConsent() {
+        return humanReadableConsent;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("Service{");

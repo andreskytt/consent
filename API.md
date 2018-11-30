@@ -33,7 +33,14 @@ Returns a list of organizations known to the system. Is likely to be implemented
 registry in production cases, thus the need to query it via the UI rather than joining the tables
 on the database side. 
 
-`/api/organizations/{id}` returns information on a particular organization 
+`/api/organizations/{id}` returns information on a particular organization. 
+
+### /api/open/services
+Returns a list of services known to the system along with the associated human-readable consent text items 
+containing the consent text presented to the user.
+
+`/api/services/{id}` return information on a particular service.
+
 
 ### /api/dc/consents
 The mapping of [findConsent](#findconsent) to a simple REST API. It accepts the URL structure of `/api/dc/consents/{userID}/{DCID}/{svcID}`

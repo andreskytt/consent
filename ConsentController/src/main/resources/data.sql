@@ -1,5 +1,5 @@
-INSERT INTO HUMAN_READABLE_CONSENT VALUES('3b1a357554ff498cab543d3e7430ec1e','First human-readable com.proud.egov.consent')
-INSERT INTO HUMAN_READABLE_CONSENT VALUES('4ab5fbcce9664c9e89f1eb1920e380ff','Second human-readable com.proud.egov.consent')
+INSERT INTO HUMAN_READABLE_CONSENT VALUES('3b1a357554ff498cab543d3e7430ec1e','First human-readable consent')
+INSERT INTO HUMAN_READABLE_CONSENT VALUES('4ab5fbcce9664c9e89f1eb1920e380ff','Second human-readable consent')
 
 INSERT INTO SERVICE VALUES('SVCID', 'DPID', 'First service', '3b1a357554ff498cab543d3e7430ec1e')
 INSERT INTO SERVICE VALUES('SVCID2', 'DPID2', 'Second service', '4ab5fbcce9664c9e89f1eb1920e380ff')

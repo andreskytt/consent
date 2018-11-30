@@ -1,8 +1,10 @@
 package com.proud.egov.consent.ui;
 
+import com.proud.egov.consent.repository.ServiceRepository;
 import io.jsonwebtoken.*;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +18,9 @@ import java.io.*;
 public class RequestConsentController {
     @Value("${com.proud.egov.consent.keyFile}")
     private String keyFile;
-//    private final static String keyFile = "private.key";
-    protected transient final Log logger = LogFactory.getLog(this.getClass());
+    private transient final Log logger = LogFactory.getLog(this.getClass());
+    @Autowired
+    private ServiceRepository serviceRepository;
 
     @PostMapping("/getConsent")
     public String getConsent(Model model, @RequestParam("consentRequest") String consentRequest){
@@ -42,6 +45,8 @@ public class RequestConsentController {
     }
 
     private void extractClaims(Model model, Jws<Claims> jws) {
+        String svcIDs = (String)(jws.getBody().get("serviceIDs"));
+
         model.addAttribute("subject", jws.getBody().getSubject());
         model.addAttribute("issuer", jws.getBody().getIssuer());
         model.addAttribute("issuedAt", jws.getBody().getIssuedAt());
